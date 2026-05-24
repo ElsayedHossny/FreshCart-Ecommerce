@@ -41,7 +41,6 @@ a:hover {
 .product:hover .btn {
   opacity: 1;
   transform: translateY(0%);
-
 }
 
 .font-sm {
@@ -58,4 +57,9 @@ a:hover {
 
 .bg-main-light {
   background-color: var(--light-color) !important;
+}
+
+
+.container-loading {
+  height: 75vh;
 }

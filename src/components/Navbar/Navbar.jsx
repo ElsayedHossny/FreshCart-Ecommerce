@@ -24,7 +24,6 @@ export default function Navbar() {
   }
 
 
-
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -136,7 +135,6 @@ export default function Navbar() {
                 </li>}
             </ul>
           </div>
-
         </div>
       </nav >
     </>

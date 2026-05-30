@@ -18,6 +18,7 @@ import CounterContextProvider from "./Context/Contect";
 import { UserContext } from "./Context/UserContext";
 import { useContext, useEffect } from "react";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import ProductDetails from "./components/ProductDetails/ProductDetails";
 
 let router = createBrowserRouter([
   {
@@ -53,6 +54,14 @@ let router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <Cart />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "productdetails/:id",
+        element: (
+          <ProtectedRoute>
+            <ProductDetails />
           </ProtectedRoute>
         ),
       },

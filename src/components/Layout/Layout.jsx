@@ -9,9 +9,11 @@ import { Outlet } from 'react-router-dom';
 export default function Layout() {
   return (
     <>
-    <Navbar/>
-    <Outlet></Outlet>
-    <Footer/>
+      <Navbar />
+      <div className="container">
+        <Outlet></Outlet>
+      </div>
+      <Footer />
     </>
   )
 }

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Style from "./FeatureProducts.module.css";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 
 export default function FeatureProducts() {
 
@@ -30,7 +31,7 @@ export default function FeatureProducts() {
     queryFn: getFeaturedProducts,
     // gcTime: 3000,
     // refetchOnMount: false,
-    staleTime: 1000,
+    // staleTime: 1000,
     // refetchInterval: 1000
 
   });
@@ -40,12 +41,12 @@ export default function FeatureProducts() {
 
   console.log(data?.data.data);
 
-  return <>
-
+  return <div>
+    <h1 className="mb-1">Feature Products</h1>
     {!isLoading ? <div className="container">
       <div className="row">
         {data.data.data.map((product) =>
-          <div className="col-md-2 cursor-pointer" key={product.id}>
+          <Link to={`productdetails/${product.id}`} className="col-md-2 cursor-pointer" key={product.id}>
             <div className="product p-3">
               <img className="w-100" src={product.imageCover} alt={product.title} />
               <span className=" text-main fw-bold">{product.category.name}</span>
@@ -56,16 +57,13 @@ export default function FeatureProducts() {
               </div>
               <button className="btn w-100 bg-main text-white border-0 rounded-2 p-1 mt-2 ">add to cart</button>
             </div>
-          </div>
+          </Link>
         )}
       </div>
     </div> :
       <div className="container container-loading d-flex justify-content-center align-items-center">
         <i className="fa-solid fa-spinner fa-spin fa-4x text-main"></i>
       </div>
-
     }
-
-
-  </>
+  </div>
 }

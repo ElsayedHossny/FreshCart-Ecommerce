@@ -16,10 +16,13 @@
     "formik": "^2.4.9",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
+    "react-helmet": "^6.1.0",
     "react-router-dom": "^7.14.2",
     "react-scripts": "5.0.1",
+    "react-slick": "^0.31.0",
     "reat": "^0.0.1-security",
     "router": "^2.2.0",
+    "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.4",
     "yup": "^1.7.1"
   },

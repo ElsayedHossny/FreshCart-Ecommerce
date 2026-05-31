@@ -19,6 +19,9 @@ import { UserContext } from "./Context/UserContext";
 import { useContext, useEffect } from "react";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
+import CartContextProvider from "./Context/CartContext";
+
+import { Toaster } from "react-hot-toast";
 
 let router = createBrowserRouter([
   {
@@ -106,9 +109,12 @@ export default function App() {
 
   return (
     <>
-      <CounterContextProvider>
-        <RouterProvider router={router}></RouterProvider>
-      </CounterContextProvider>
+      <CartContextProvider>
+        <CounterContextProvider>
+          <RouterProvider router={router}></RouterProvider>
+        </CounterContextProvider>
+      </CartContextProvider>
+      <Toaster />
     </>
   );
 }

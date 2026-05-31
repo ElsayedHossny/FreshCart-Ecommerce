@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Style from "./ProductDetails.module.css";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import axios from 'axios';
 import Slider from "react-slick";
+import toast from 'react-hot-toast';
+import { CartContext } from "../../Context/CartContext";
 
 export default function ProductDetails() {
   let { id } = useParams();
@@ -28,6 +30,19 @@ export default function ProductDetails() {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+
+
+  let { addToCart } = useContext(CartContext);
+  async function getResponseCart(id) {
+    let { data } = await addToCart(id);
+    if (data.status === "success") {
+      toast.success('Successfully created!')
+    } else {
+      toast.error('This is an error!');
+    }
+  }
+
+
   return <>
     {!isPending ?
       <div className="row align-items-center mt-5 p-4">
@@ -50,7 +65,7 @@ export default function ProductDetails() {
             <span>ratingsQuantity: {product.ratingsQuantity}</span>
             <span><i className="fa-solid fa-star rating-color"></i> {product.ratingsAverage}</span>
           </div>
-          <button className="w-100 btn bg-main text-white mt-4" >Add to Cart</button>
+          <button onClick={() => getResponseCart(product.id)} className="w-100 btn bg-main text-white mt-4" >Add to Cart</button>
 
 
 
@@ -59,7 +74,6 @@ export default function ProductDetails() {
       : <div className="container container-loading d-flex justify-content-center align-items-center">
         <i className="fa-solid fa-spinner fa-spin fa-4x text-main"></i>
       </div>}
-
   </>;
 }
 

@@ -26,6 +26,13 @@ body {
   cursor: pointer;
 }
 
+
+.network {
+  left: 50%;
+  top: 85px;
+  transform: translate(-50%, -50%);
+}
+
 a,
 a:hover {
   color: black !important;

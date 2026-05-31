@@ -38,7 +38,7 @@ export default function MainSlider() {
         <img height={198} className="w-100 cover-full" src={blog2} alt="" />
       </div>
     </div>
-
   </div>
 
 }
+

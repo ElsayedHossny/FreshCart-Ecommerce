@@ -26,6 +26,9 @@ body {
   cursor: pointer;
 }
 
+.btn-Con:hover {
+  color: white;
+}
 
 .network {
   left: 50%;
@@ -41,16 +44,16 @@ a:hover {
 
 .product:hover {
   box-shadow: var(--shadow);
+  border-radius: 10px;
   border: solid 1px var(--main-color);
 }
 
-.product .btn {
+.product {
   transition: transform 1s, opacity 1s;
-  transform: translateY(100%);
-  opacity: 0;
+  transform: translateY(5%);
 }
 
-.product:hover .btn {
+.product:hover {
   opacity: 1;
   transform: translateY(0%);
 }

@@ -50,11 +50,7 @@ export default function Navbar() {
                   Home
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="cart">
-                  Cart
-                </Link>
-              </li>
+
               <li className="nav-item">
                 <Link className="nav-link" to="products">
                   Products
@@ -68,6 +64,11 @@ export default function Navbar() {
               <li className="nav-item">
                 <Link className="nav-link" aria-disabled="true" to="brands">
                   Brands
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="cart">
+                  Cart
                 </Link>
               </li>
             </ul> : ""}

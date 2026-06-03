@@ -1,6 +1,14 @@
-import React from "react";
-import Style from "./Products.module.css";
+import React from 'react'
+import FeatureProducts from '../FeatureProducts/FeatureProducts'
+
+
+
+
 export default function Products() {
-  return;
-  <div>Products</div>;
+  return (
+    <>
+      <FeatureProducts />
+    </>
+
+  )
 }

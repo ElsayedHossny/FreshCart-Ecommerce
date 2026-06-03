@@ -1,11 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
-import Style from "./FeatureProducts.module.css";
+import React, { useContext } from "react";
+
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 
 import toast from 'react-hot-toast';
 import { CartContext } from "../../Context/CartContext";
+
 
 export default function FeatureProducts() {
 
@@ -33,14 +34,17 @@ export default function FeatureProducts() {
   }
 
   return <div>
-    <h1 className="mb-1">Feature Products</h1>
+
+    <h2 className="fw-bolder mt-4 text-center">
+      Feature <span className="text-main">Products</span>
+    </h2>
     {!isLoading ? (
       <div className="container">
         <div className="row">
           {data.data.data.map((product) => (
-            <div className="col-md-2 cursor-pointer" key={product.id}>
-              <div className="product p-3">
-                <Link to={`productdetails/${product.id}`}>
+            <div className="col-md-2 mb-4 cursor-pointer" key={product.id}>
+              <div className="product shadow-sm rounded-2 p-3">
+                <Link to={`/products/productdetails/${product.id}`}>
                   <img className="w-100" src={product.imageCover} alt={product.title} />
                   <span className="text-main fw-bold">{product.category.name}</span>
                   <h3 className="h6">{product.title.split(" ").slice(0, 2).join(" ")}</h3>

@@ -24,7 +24,7 @@ export default function MainSlider() {
   };
 
 
-  return <div>
+  return <div className="mt-3">
     <div className="row" >
       <div className="col-md-9 ">
         <Slider {...settings}>

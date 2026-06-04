@@ -10,6 +10,7 @@ export default function Navbar() {
   let navigate = useNavigate();
   let { UserToken, NameSignIn, setUserToken, setNameSignIn } = useContext(UserContext);
 
+  let { NumOfCartItems } = useContext(UserContext);
 
   function handleLogOut() {    // delete localStorage
     // localStorage.setItem("userToken", null); //store as string
@@ -66,42 +67,21 @@ export default function Navbar() {
                   Brands
                 </Link>
               </li>
+
               <li className="nav-item">
-                <Link className="nav-link" to="cart">
-                  Cart
+                <Link className="nav-link" to="allorders">
+                  AllOrders
                 </Link>
               </li>
             </ul> : ""}
 
             <ul className="navbar-nav ms-auto d-flex align-items-center">
-              <li className="nav-item">
-                <Link
-                  className="nav-link active"
-                  aria-current="page"
-                  target="_blank"
-                  to="https://www.facebook.com/elsayed.hossny.56"
-                >
-                  <i className="fa-brands fa-facebook  fa-lg "></i>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link active"
-                  aria-current="page"
-                  target="_blank"
-                  to="https://www.facebook.com/elsayed.hossny.56"
-                >
-                  <i className="fa-brands fa-twitter fa-lg "></i>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link active"
-                  aria-current="page"
-                  target="_blank"
-                  to="https://www.facebook.com/elsayed.hossny.56"
-                >
-                  <i className="fa-brands fa-instagram fa-lg "></i>
+              <li className="nav-item position-relative">
+                <Link className="nav-link" to="cart">
+                  <i className="fa-solid fa-cart-shopping text-main fa-xl"></i>
+                  <span className="position-absolute top-0 end-0 badge rounded-pill bg-danger" style={{ fontSize: '10px' }}>
+                    {NumOfCartItems}
+                  </span>
                 </Link>
               </li>
               <li className="nav-item">

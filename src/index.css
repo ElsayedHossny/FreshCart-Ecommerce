@@ -50,7 +50,7 @@ a:hover {
 
 .product {
   transition: transform 1s, opacity 1s;
-  transform: translateY(5%);
+  transform: translateY(2%);
 }
 
 .product:hover {

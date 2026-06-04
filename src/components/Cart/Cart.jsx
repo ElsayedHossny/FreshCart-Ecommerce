@@ -4,34 +4,41 @@ import { CartContext } from '../../Context/CartContext'
 import { Helmet } from 'react-helmet-async';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
-
+import { UserContext } from '../../Context/UserContext';
 
 export default function Cart() {
 
+  let { setCartID, setNumOfCartItems } = useContext(UserContext);
   let { getLoggedUserCart, removeSpecificCartItem, updateCartProductQuantity, clearUserCart } = useContext(CartContext);
-  const [Cart, setCart] = useState(null)
+  const [Cart, setCart] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+
 
   async function displayCartProduct() {
     let { data } = await getLoggedUserCart();
+    setNumOfCartItems(data.numOfCartItems);
+    setCartID(data.cartId);
     data.numOfCartItems > 0 ? setCart(data) : setCart(null);
     setIsLoading(false);
   }
 
   async function removeCartProduct(id) {
     let { data } = await removeSpecificCartItem(id);
+    setNumOfCartItems(data.numOfCartItems);
     data.numOfCartItems > 0 ? setCart(data) : setCart(null);
     data.status === "success" ? toast.success('Successfully Remove!') : toast.error('Something went wrong');
   }
 
   async function UpdateCount(id, count) {
     let { data } = await updateCartProductQuantity(id, count);
+    setNumOfCartItems(data.numOfCartItems);
     setCart(data);
     data.status === "success" ? toast.success('Updated success!') : toast.error('Something went wrong');
   }
 
   async function ClearAllCart() {
     let { data } = await clearUserCart();
+    setNumOfCartItems(data.numOfCartItems);
     setCart(null);
     setIsLoading(false);
     data.message === "success" ? toast.success('Remove All success!') : toast.error('Something went wrong');
@@ -132,17 +139,17 @@ export default function Cart() {
                       <span className="fw-bold">Total</span>
                       <span className="fw-bold text-main fs-5">{Cart.data.totalCartPrice} EGP</span>
                     </div>
-
-                    <button
-                      className="btn btn-success w-100 text-white fw-semibold mb-2"
-                    >
-                      <i className="fa-solid fa-credit-card me-2"></i>Checkout
-                    </button>
+                    <Link to={'/checkOut'}>
+                      <button
+                        className="btn btn-success w-100 text-white fw-semibold mb-2"
+                      >
+                        <i className="fa-solid fa-credit-card me-2"></i>Checkout
+                      </button>
+                    </Link>
                     <Link to="/products" >
                       <button className="btn btn-outline-success w-100 ">
                         Continue Shopping
                       </button>
-
                     </Link>
                   </div>
                 </div>

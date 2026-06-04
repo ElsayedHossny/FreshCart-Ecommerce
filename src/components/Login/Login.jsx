@@ -11,6 +11,7 @@ export default function Login() {
   let navigate = useNavigate();
   let { setUserToken, setNameSignIn } = useContext(UserContext);
 
+  let { setUserEmail } = useContext(UserContext)
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -28,8 +29,10 @@ export default function Login() {
       setIsLoading(false);
       localStorage.setItem('userToken', data.token);
       localStorage.setItem('userName', data.user.name);
+      localStorage.setItem('useremail', data.user.email);
       setNameSignIn(data.user.name);
       setUserToken(data.token);
+      setUserEmail(data.user.email);
       navigate("/");
     }
   }

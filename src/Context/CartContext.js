@@ -65,6 +65,18 @@ async function clearUserCart() {
     .catch((error) => error);
 }
 
+async function CheckOutPaymentMethod(value, id, url) {
+  return await axios.post(
+    `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${id}?url=${url}`,
+    {
+      shippingAddress: value,
+    },
+    {
+      headers: header,
+    },
+  );
+}
+
 export default function CartContextProvider({ children }) {
   return (
     <>
@@ -75,6 +87,7 @@ export default function CartContextProvider({ children }) {
           getLoggedUserCart,
           removeSpecificCartItem,
           clearUserCart,
+          CheckOutPaymentMethod,
         }}
       >
         {children}

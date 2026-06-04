@@ -6,9 +6,11 @@ import { Link } from "react-router-dom";
 
 import toast from 'react-hot-toast';
 import { CartContext } from "../../Context/CartContext";
-
+import { UserContext } from '../../Context/UserContext';
 
 export default function FeatureProducts() {
+
+  let { setNumOfCartItems } = useContext(UserContext);
 
   function getFeaturedProducts() {
     return axios.get("https://ecommerce.routemisr.com/api/v1/products");
@@ -26,6 +28,8 @@ export default function FeatureProducts() {
   let { addToCart } = useContext(CartContext);
   async function getResponseCart(id) {
     let { data } = await addToCart(id);
+    setNumOfCartItems(data.numOfCartItems);
+
     if (data.status === "success") {
       toast.success('Successfully created!')
     } else {

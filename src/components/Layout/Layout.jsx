@@ -5,7 +5,8 @@ import { Outlet } from 'react-router-dom';
 
 
 
-import { Offline } from "react-detect-offline";
+// import { Offline } from "react-detect-offline";
+import useNetwork from '../../Hooks/useNetwork';
 
 // const App = () => (
 //   <div>
@@ -14,16 +15,23 @@ import { Offline } from "react-detect-offline";
 //   </div>
 // );
 
+
+
 export default function Layout() {
+
+
+  let networkCheck = useNetwork();
+
   return (
     <>
       <Navbar />
       <div className="container">
-        <Offline>
+        {networkCheck}
+        {/* <Offline>
           <div className=" network position-fixed p-3 bg-white shadow-lg z-2 text-danger fw-bold">
             <i className="fa-solid fa-wifi"></i> Network Not Connect
           </div>
-        </Offline>
+        </Offline> */}
         <Outlet></Outlet>
       </div>
       <Footer />

@@ -21,6 +21,24 @@ var settings = {
   autoplaySpeed: 2000,
   slidesToShow: 5,
   slidesToScroll: 2,
+
+  responsive: [
+    {
+      breakpoint: 1024, // tablet
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 768, // mobile
+      settings: {
+        dots: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
 };
 
 
@@ -51,11 +69,14 @@ export default function SpecificProducts() {
 
     {!isLoading ? (
       <div className="container">
+        <div className="d-block d-md-none">
+          <h3 className="mb-3 text-center">My <span className="text-main">Products</span></h3>
+        </div>
         <div className="row ">
           <Slider {...settings}>
             {data.data.data.slice(1, 22).map((product) => (
 
-              <div className="col-md-2 cursor-pointer pb-5" key={product.id}>
+              <div className="cursor-pointer pb-5" key={product.id}>
                 <div className="product shadow-sm me-2 rounded-2 p-3">
                   <Link to={`/products/productdetails/${product.id}`}>
                     <img className="w-100" src={product.imageCover} alt={product.title} />

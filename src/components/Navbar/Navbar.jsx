@@ -27,7 +27,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className=" sticky-top navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <Link className="navbar-brand" to="">
             <img src={logo} alt="freshcart" />
@@ -91,7 +91,7 @@ export default function Navbar() {
                   target="_blank"
                   to="https://www.facebook.com/elsayed.hossny.56"
                 >
-                  <i className="fa-brands fa-tiktok fa-lg"></i>
+                  <i className="fa-brands fa-facebook fa-lg"></i>
                 </Link>
               </li>
 

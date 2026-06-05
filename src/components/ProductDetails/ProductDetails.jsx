@@ -6,6 +6,7 @@ import axios from 'axios';
 import Slider from "react-slick";
 import toast from 'react-hot-toast';
 import { CartContext } from "../../Context/CartContext";
+import { UserContext } from "../../Context/UserContext";
 
 export default function ProductDetails() {
   let { id } = useParams();
@@ -33,8 +34,13 @@ export default function ProductDetails() {
 
 
   let { addToCart } = useContext(CartContext);
+
+  let { setNumOfCartItems } = useContext(UserContext);
+
+
   async function getResponseCart(id) {
     let { data } = await addToCart(id);
+    setNumOfCartItems(data.numOfCartItems);
     if (data.status === "success") {
       toast.success('Successfully created!')
     } else {
@@ -45,7 +51,7 @@ export default function ProductDetails() {
 
   return <>
     {!isPending ?
-      <div className="row align-items-center mt-5 p-4">
+      <div className="row align-items-center mt-5 p-4 gap-5 gap-sm-0">
         <div className="col-md-4">
           <div className="slider-container">
             <Slider {...settings}>

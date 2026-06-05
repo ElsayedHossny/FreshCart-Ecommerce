@@ -33,7 +33,7 @@ export default function MainSlider() {
           <img height={400} className="w-100" src={img3} alt="" />
         </Slider>
       </div>
-      <div className="col-md-3 p-0 d-flex flex-column gap-1">
+      <div className="d-none d-md-flex col-md-3 p-0 flex-column gap-1">
         <img height={198} className="w-100 cover-full" src={bolg1} alt="" />
         <img height={198} className="w-100 cover-full" src={blog2} alt="" />
       </div>

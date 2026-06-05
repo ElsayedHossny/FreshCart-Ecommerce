@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export let UserContext = createContext();
 
@@ -8,7 +8,15 @@ export default function UserContextProvider(props) {
   const [NameSignIn, setNameSignIn] = useState(null);
   const [UserEmail, setUserEmail] = useState(null);
   const [CartID, setCartID] = useState(null);
-  const [NumOfCartItems, setNumOfCartItems] = useState(null);
+  const [NumOfCartItems, setNumOfCartItems] = useState(
+    localStorage.getItem("numOfCartItems")
+      ? localStorage.getItem("numOfCartItems")
+      : null,
+  );
+
+  useEffect(() => {
+    localStorage.setItem("numOfCartItems", NumOfCartItems);
+  }, [NumOfCartItems]);
 
   return (
     <>

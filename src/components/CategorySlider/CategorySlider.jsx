@@ -17,6 +17,25 @@ export default function CategorySlider() {
     autoplaySpeed: 1500,
     slidesToShow: 7,
     slidesToScroll: 1,
+
+    responsive: [
+      {
+        breakpoint: 1024, // tablet
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768, // mobile
+        settings: {
+          dots: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+
   };
 
 
@@ -32,14 +51,22 @@ export default function CategorySlider() {
   let Categories = data?.data.data;
   return (
     <div>
-      {!isLoading ? <div className="container"> <Slider {...settings}>
-        {Categories.map((cat) => (
-          <div key={cat._id}>
-            <img height={200} className="w-100" src={cat.image} alt={cat._id} />
-            <p className="text-center mt-1 font-sm">{cat.name}</p>
-          </div>
-        ))}
-      </Slider>
+      {!isLoading ? <div className="container">
+        <div className="d-block d-md-none">
+          <h3 className="mb-3 text-center">My <span className="text-main">Category</span></h3>
+        </div>
+        <Slider {...settings}>
+          {Categories.map((cat) => (
+            <div key={cat._id}>
+              {/* Desktop — يظهر من 768px وأكبر */}
+              <img height={200} className="w-100 d-none d-md-block" src={cat.image} alt={cat._id} />
+
+              {/* Mobile — يظهر أقل من 768px بس */}
+              <img height={400} className="w-100 d-block d-md-none" src={cat.image} alt={cat._id} />
+              <p className="text-center mt-1 font-sm">{cat.name}</p>
+            </div>
+          ))}
+        </Slider>
       </div>
 
         : ""}

@@ -78,3 +78,25 @@ a:hover {
 .container-loading {
   height: 75vh;
 }
+
+
+.category-img {
+  height: 200px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .category-img {
+    height: 400px;
+  }
+}
+
+
+.swiper-pagination-bullet {
+  background: #ccc !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #0aad0a !important;
+}

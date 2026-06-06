@@ -1,1 +1,8 @@
-.SpecificProducts {}
+.swiper-pagination-bullet {
+    background: #ccc;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background: #0aad0a;
+}

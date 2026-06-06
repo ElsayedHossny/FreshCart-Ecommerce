@@ -17,7 +17,7 @@ export default function Home() {
       <meta name="description" content="Welcome to the home page of My Website." />
     </Helmet>
 
-    <div className="d-flex flex-column gap-5 ">
+    <div className="d-flex flex-column gap-3 ">
       <MainSlider />
       <CategorySlider />
       <SpecificProducts />

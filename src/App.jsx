@@ -34,6 +34,14 @@ let router = createBrowserRouter([
         ),
       },
       {
+        path: "profile",
+        element: (
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        ),
+      },
+      {
         path: "products",
         element: (
           <ProtectedRoute>
@@ -78,14 +86,6 @@ let router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <ProductDetails />
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "profile",
-        element: (
-          <ProtectedRoute>
-            <Profile />
           </ProtectedRoute>
         ),
       },

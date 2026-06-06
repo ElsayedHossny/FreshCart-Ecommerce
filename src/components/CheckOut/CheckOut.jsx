@@ -13,7 +13,7 @@ export default function CheckOut() {
   let { CartID, setNumOfCartItems } = useContext(UserContext);
   async function handleSubmitPayment(values) {
     setisLoading(true);
-    let { data } = await CheckOutPaymentMethod(values, CartID ? CartID : "null", "http://localhost:5173");
+    let { data } = await CheckOutPaymentMethod(values, CartID ? CartID : "null", "https://freshcart-ecommerce-cyan.vercel.app");
     // console.log(data.session.url);
     if (data?.status === "success") {
       toast.success("Order placed successfully!");

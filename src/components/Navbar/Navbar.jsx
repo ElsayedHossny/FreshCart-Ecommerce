@@ -95,12 +95,7 @@ export default function Navbar() {
                 </> : (
                   <>
                     <li className="nav-item">
-                      <Link
-                        className="nav-link active"
-                        aria-current="page"
-                        target="_blank"
-                        to="profile"
-                      >
+                      <Link className="nav-link" to="profile">
                         <i className="fa-regular fa-circle-user fa-xl text-main"></i>
                       </Link>
                     </li>

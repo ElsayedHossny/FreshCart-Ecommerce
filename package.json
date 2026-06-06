@@ -12,7 +12,6 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.16.0",
     "bootstrap": "^5.3.8",
-    "dom": "^0.0.3",
     "formik": "^2.4.9",
     "react": "^19.2.5",
     "react-detect-offline": "^2.4.5",
@@ -22,8 +21,6 @@
     "react-router-dom": "^7.14.2",
     "react-scripts": "5.0.1",
     "react-slick": "^0.31.0",
-    "reat": "^0.0.1-security",
-    "router": "^2.2.0",
     "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.4",
     "yup": "^1.7.1"
@@ -51,5 +48,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+    "engines": {
+    "node": "20.x"
   }
+  
 }

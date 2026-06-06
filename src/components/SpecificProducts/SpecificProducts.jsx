@@ -41,6 +41,7 @@ export default function SpecificProducts() {
           </div>
           <div className="mb-0 mb-md-3">
             <Swiper
+              style={{ paddingBottom: '20px' }}
               modules={[Autoplay, Pagination]}
               pagination={{ clickable: true }}
               autoplay={{ delay: 2000, disableOnInteraction: false }}

@@ -76,26 +76,6 @@ export default function Navbar() {
             </ul> : ""}
 
             <ul className="navbar-nav ms-auto d-flex align-items-center">
-              <li className="nav-item">
-                <Link
-                  className="nav-link active"
-                  aria-current="page"
-                  target="_blank"
-                  to="profile"
-                >
-                  <i class="fa-regular fa-circle-user fa-xl text-main"></i>
-                </Link>
-              </li>
-              <li className="nav-item position-relative">
-                <Link className="nav-link" to="cart">
-                  <i className="fa-solid fa-cart-shopping fa-xl"></i>
-                  <span className="position-absolute fw-bolder top-0 end-0 badge rounded-pill bg-black" style={{ fontSize: '10px' }}>
-                    {NumOfCartItems}
-                  </span>
-                </Link>
-              </li>
-
-
               {UserToken === null ?
                 <>
                   <li className="nav-item">
@@ -112,9 +92,31 @@ export default function Navbar() {
                       Register
                     </Link>
                   </li>
-                </> : <li className="nav-item" onClick={handleLogOut}>
-                  <Link className="nav-link"> <button className=" btn btn-sm"> Logout<i className="fa-solid fa-right-from-bracket  fa-xl "></i></button> </Link>
-                </li>}
+                </> : (
+                  <>
+                    <li className="nav-item">
+                      <Link
+                        className="nav-link active"
+                        aria-current="page"
+                        target="_blank"
+                        to="profile"
+                      >
+                        <i className="fa-regular fa-circle-user fa-xl text-main"></i>
+                      </Link>
+                    </li>
+                    <li className="nav-item position-relative">
+                      <Link className="nav-link" to="cart">
+                        <i className="fa-solid fa-cart-shopping fa-xl"></i>
+                        <span className="position-absolute fw-bolder top-0 end-0 badge rounded-pill bg-black" style={{ fontSize: '10px' }}>
+                          {NumOfCartItems}
+                        </span>
+                      </Link>
+                    </li>
+
+                    <li className="nav-item" onClick={handleLogOut}>
+                      <Link className="nav-link"> <button className=" btn btn-sm"> Logout<i className="fa-solid fa-right-from-bracket  fa-xl "></i></button> </Link>
+                    </li>
+                  </>)}
             </ul>
           </div>
         </div >

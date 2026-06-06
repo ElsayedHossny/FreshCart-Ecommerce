@@ -6,6 +6,7 @@ import MainSlider from '../MainSlider/MainSlider';
 import { Helmet } from 'react-helmet-async';
 import SpecificProducts from '../SpecificProducts/SpecificProducts';
 import { Link } from 'react-router-dom';
+import BrandSlider from '../BrandSlider/BrandSlider';
 
 export default function Home() {
 
@@ -19,7 +20,10 @@ export default function Home() {
 
     <div className="d-flex flex-column gap-3 ">
       <MainSlider />
-      <CategorySlider />
+      <div className="container">
+        <CategorySlider />
+        <BrandSlider />
+      </div>
       <SpecificProducts />
     </div>
   </>

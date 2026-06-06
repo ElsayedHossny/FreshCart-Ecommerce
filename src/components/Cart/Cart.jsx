@@ -16,7 +16,7 @@ export default function Cart() {
 
   async function displayCartProduct() {
     let { data } = await getLoggedUserCart();
-    setNumOfCartItems(data.numOfCartItems);
+    setNumOfCartItems(data?.numOfCartItems);
     setCartID(data.cartId);
     data.numOfCartItems > 0 ? setCart(data) : setCart(null);
     setIsLoading(false);

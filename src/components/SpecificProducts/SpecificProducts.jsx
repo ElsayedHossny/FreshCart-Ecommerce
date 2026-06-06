@@ -68,11 +68,11 @@ export default function SpecificProducts() {
   return <div>
 
     {!isLoading ? (
-      <div className="container">
+      <div className="container text-center">
         <div className="d-block d-md-none">
-          <h3 className="mb-3 text-center">My <span className="text-main">Products</span></h3>
+          <h3 className="mb-2 text-center">My <span className="text-main">Products</span></h3>
         </div>
-        <div className="row ">
+        <div className="row mb-0 mb-md-5">
           <Slider {...settings}>
             {data.data.data.slice(1, 22).map((product) => (
 
@@ -97,11 +97,16 @@ export default function SpecificProducts() {
             ))}
           </Slider>
         </div>
+        <Link to={"products"} className='text-center mb-2'>
+          <button className='btn bg-main text-white px-5 py-2 fw-bolder'>Show More</button>
+        </Link>
       </div>
     ) : (
       <div className="container container-loading d-flex justify-content-center align-items-center">
         <i className="fa-solid fa-spinner fa-spin fa-4x text-main"></i>
       </div>
-    )}
-  </div>
+    )
+    }
+
+  </div >
 }

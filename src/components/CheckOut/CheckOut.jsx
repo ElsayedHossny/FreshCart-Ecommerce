@@ -10,7 +10,7 @@ export default function CheckOut() {
 
   const [isLoading, setisLoading] = useState(false);
   let { CheckOutPaymentMethod } = useContext(CartContext);
-  let { CartID } = useContext(UserContext);
+  let { CartID, setNumOfCartItems } = useContext(UserContext);
   async function handleSubmitPayment(values) {
     setisLoading(true);
     let { data } = await CheckOutPaymentMethod(values, CartID ? CartID : "null", "http://localhost:3000");
@@ -18,6 +18,7 @@ export default function CheckOut() {
     if (data?.status === "success") {
       toast.success("Order placed successfully!");
       window.location.href = data.session.url;
+      setNumOfCartItems(0);
     } else {
       toast.error("Something went wrong");
     }

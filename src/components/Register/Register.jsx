@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -56,6 +56,12 @@ export default function Register() {
     onSubmit: submithandle,
   });
 
+  let EmailInput = useRef(null);
+
+  useEffect(() => {
+    EmailInput.current.focus();
+  }, [])
+
   return (
     <>
       <div className="w-75 py-5 mx-auto">
@@ -78,6 +84,7 @@ export default function Register() {
                     <i className="fa-solid fa-user"></i>
                   </span>
                   <input
+                    ref={EmailInput}
                     onBlur={formik.handleBlur}
                     onChange={formik.handleChange}
                     value={formik.values.name}

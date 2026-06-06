@@ -21,10 +21,6 @@ export default function Home() {
       <MainSlider />
       <CategorySlider />
       <SpecificProducts />
-      <Link to={"products"} className='text-center mb-2'>
-        <button className='btn bg-main text-white px-5 py-2 fw-bolder'>Show More</button>
-      </Link>
-
     </div>
   </>
   )

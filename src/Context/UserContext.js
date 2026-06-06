@@ -9,9 +9,7 @@ export default function UserContextProvider(props) {
   const [UserEmail, setUserEmail] = useState(null);
   const [CartID, setCartID] = useState(null);
   const [NumOfCartItems, setNumOfCartItems] = useState(
-    localStorage.getItem("numOfCartItems")
-      ? localStorage.getItem("numOfCartItems")
-      : null,
+    Number(localStorage.getItem("numOfCartItems")) || 0,
   );
 
   useEffect(() => {

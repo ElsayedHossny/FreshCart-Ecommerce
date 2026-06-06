@@ -6,15 +6,15 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-export default function CategorySlider() {
+export default function BrandSlider() {
 
-  function getCategorySlider() {
-    return axios.get(`https://ecommerce.routemisr.com/api/v1/categories`);
+  function getBrandSlider() {
+    return axios.get(`https://ecommerce.routemisr.com/api/v1/brands`);
   }
 
   let { isLoading, data } = useQuery({
-    queryKey: ["CategorySlider"],
-    queryFn: getCategorySlider,
+    queryKey: ["BrandSlider"],
+    queryFn: getBrandSlider,
   });
 
   let Categories = data?.data.data;
@@ -24,11 +24,12 @@ export default function CategorySlider() {
       {!isLoading ? (
         <div className="container">
           <div className="d-block d-md-none">
-            <h3 className="mb-3 text-center">My <span className="text-main">Category</span></h3>
+            <h3 className="mb-3 text-center">My <span className="text-main">Brands</span></h3>
           </div>
           <Swiper
+            style={{ paddingBottom: '20px' }}
             modules={[Autoplay, Pagination]}
-            autoplay={{ delay: 1500, disableOnInteraction: false }}
+            autoplay={{ delay: 1700, disableOnInteraction: false }}
             spaceBetween={10}
             breakpoints={{
               0: { slidesPerView: 1 },
@@ -40,7 +41,7 @@ export default function CategorySlider() {
             {Categories.map((cat) => (
               <SwiperSlide key={cat._id}>
                 <img
-                  className="category-img w-100"
+                  className="w-100"
                   src={cat.image}
                   alt={cat.name}
                 />

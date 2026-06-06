@@ -18,6 +18,7 @@ import CartContextProvider from "./Context/CartContext";
 import { Toaster } from "react-hot-toast";
 import CheckOut from "./components/CheckOut/CheckOut";
 import AllOrders from "./components/AllOrders/AllOrders";
+import Profile from "./components/Profile/Profile";
 
 let router = createBrowserRouter([
   {
@@ -80,6 +81,15 @@ let router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
+      {
+        path: "Profile",
+        element: (
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        ),
+      },
+
       { path: "register", element: <Register /> },
       { path: "login", element: <Login /> },
       {

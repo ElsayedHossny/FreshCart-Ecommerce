@@ -1,4 +1,4 @@
-![Uploading image.png…]()
+![FreshCart Cover](./FreshCart_Cover.png)
 
 # 🛒 FreshCart — React E-Commerce Web Application
 

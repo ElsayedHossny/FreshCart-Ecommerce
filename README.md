@@ -1,3 +1,5 @@
+![Uploading image.png…]()
+
 # 🛒 FreshCart — React E-Commerce Web Application
 
 **FreshCart** is a complete, responsive e-commerce web application built with **React.js** and **Bootstrap**.
